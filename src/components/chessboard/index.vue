@@ -32,6 +32,10 @@ export default {
       type: String,
       default: 'white',
     },
+    move: {
+      type: String,
+      default: ''
+    },
   },
   watch: {
     fen: function (newFen) {
@@ -49,6 +53,10 @@ export default {
         this.paintThreats()
       }
     },
+    move: function (move) {
+      this.move = move
+      this.loadMove()
+    }
   },
   methods: {
     possibleMoves () {
@@ -176,6 +184,18 @@ export default {
       })
       this.afterMove()
     },
+    loadMove() {
+      console.log(this.move)
+      this.game.move({from: this.move.substring(0,2), to: this.move.substring(2, 4), promotion: this.move.charAt(4)})
+        this.board.set({
+          fen: this.game.fen(),
+          turnColor: this.toColor(),
+          movable: {
+            color: this.toColor(),
+            dests: this.possibleMoves(),
+          },
+        })  
+    }
   },
   mounted () {
     this.loadPosition()
