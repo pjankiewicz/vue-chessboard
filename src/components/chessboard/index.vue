@@ -30,7 +30,7 @@ export default {
     },
     orientation: {
       type: String,
-      default: 'white',
+      default: 'black',
     },
     move: {
       type: String,
