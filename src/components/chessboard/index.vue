@@ -86,6 +86,7 @@ export default {
     },
     paintThreats () {
       let moves = this.game.moves({verbose: true})
+      console.log(moves[0])
       let threats = []
       moves.forEach(function (move) {
         threats.push({orig: move.to, brush: 'yellow'})
