@@ -30,7 +30,7 @@ export default {
     },
     orientation: {
       type: String,
-      default: 'black',
+      default: 'white',
     },
     move: {
       type: String,
@@ -86,7 +86,6 @@ export default {
     },
     paintThreats () {
       let moves = this.game.moves({verbose: true})
-      console.log(moves[0])
       let threats = []
       moves.forEach(function (move) {
         threats.push({orig: move.to, brush: 'yellow'})
@@ -194,8 +193,10 @@ export default {
         movable: {
           color: this.toColor(),
           dests: this.possibleMoves(),
+          events: { after: this.changeTurn() },
         },
       })
+      this.afterMove()
     },
   },
   mounted () {
