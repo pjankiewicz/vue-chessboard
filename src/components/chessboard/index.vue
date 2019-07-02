@@ -195,33 +195,17 @@ export default {
       this.afterMove()
     },
     loadMove () {
-      console.log('loadmove')
-      this.engine.postMessage('position startpos moves e2e4')
-      this.engine.postMessage('go depth 3')
-      this.engine.onmessage = function (event) {
-        console.log(event.data)
-        let line = event.data
-        if (event.data.indexOf('bestmove') > -1) {
-          let match = line.match(/^bestmove ([a-h][1-8])([a-h][1-8])(qrbn)?/)
-          console.log(match[1] + match[2])
-          // move = match[1] + match[2]
-          this.game.move({ from: match[1], to: match[2], promotion: match[3] })
-          this.board.set({
-            fen: this.game.fen(),
-            turnColor: this.toColor(),
-            movable: {
-              color: this.toColor(),
-              dests: this.possibleMoves(),
-              events: { after: this.changeTurn() },
-            },
-          })
-          this.afterMove()
-        }
-      }
-    },
-    sendUci (str) {
-      console.log('Send: ' + str)
-      this.engine.postMessage(str)
+      this.game.move({ from: this.move.substring(0, 2), to: this.move.substring(2, 4), promotion: this.move.charAt(4) })
+      this.board.set({
+        fen: this.game.fen(),
+        turnColor: this.toColor(),
+        movable: {
+          color: this.toColor(),
+          dests: this.possibleMoves(),
+          events: { after: this.changeTurn() },
+        },
+      })
+      this.afterMove()
     },
   },
   mounted () {
