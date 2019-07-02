@@ -216,8 +216,6 @@ export default {
     this.board = null
     this.promotions = []
     this.promoteTo = 'q'
-    this.engine = new Worker('stockfish.js')
-    this.sendUci('uci')
   },
 }
 </script>
