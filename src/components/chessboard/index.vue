@@ -36,6 +36,10 @@ export default {
       type: String,
       default: '',
     },
+    isBotTurn: {
+      type: Boolean,
+      default: false,
+    },
   },
   watch: {
     fen: function (newFen) {
@@ -56,6 +60,12 @@ export default {
     move: function (move) {
       this.move = move
       this.loadMove()
+    },
+    isBotTurn: function (isBotTurn) {
+      this.isBotTurn = isBotTurn
+      if (this.isBotTurn) {
+        this.loadMove()
+      }
     },
   },
   methods: {
@@ -185,6 +195,7 @@ export default {
       this.afterMove()
     },
     loadMove () {
+      console.log('loadmove')
       this.engine.postMessage('position startpos moves e2e4')
       this.engine.postMessage('go depth 3')
       this.engine.onmessage = function (event) {
