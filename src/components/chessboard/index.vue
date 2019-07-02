@@ -185,7 +185,6 @@ export default {
       this.afterMove()
     },
     loadMove () {
-      console.log(this.move)
       this.game.move({ from: this.move.substring(0, 2), to: this.move.substring(2, 4), promotion: this.move.charAt(4) })
       this.board.set({
         fen: this.game.fen(),
