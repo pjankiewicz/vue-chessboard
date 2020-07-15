@@ -120,11 +120,13 @@ export default {
     },
     isPromotion   (orig, dest) {
       this.calculatePromotions()
+      console.log(this.promotions)
       let filteredPromotions = this.promotions.filter(move => move.from === orig && move.to === dest)
       return filteredPromotions.length > 0 // The current movement is a promotion
     },
     changeTurn () {
       return (orig, dest, metadata) => {
+        console.log("orig", orig, "dest", dest)
         if (this.isPromotion(orig, dest)) {
           this.promoteTo = this.onPromotion()
         }
