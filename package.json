@@ -1,10 +1,10 @@
 {
   "name": "vue-chessboard",
   "description": "Chessboard vue component to load positions, create positions and see threats",
-  "version": "0.6.6",
+  "version": "0.6.7",
   "author": {
-    "name": "vitogit",
-    "email": "vitogit@users.noreply.github.com"
+    "name": "pjankiewicz",
+    "email": "pjankiewicz@users.noreply.github.com"
   },
   "keywords": [
     "vue",
@@ -25,12 +25,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vitogit/vue-chessboard.git"
+    "url": "git+https://github.com/pjankiewicz/vue-chessboard.git"
   },
   "bugs": {
-    "url": "https://github.com/vitogit/vue-chessboard/issues"
+    "url": "https://github.com/pjankiewicz/vue-chessboard/issues"
   },
-  "homepage": "https://github.com/vitogit/vue-chessboard#readme",
+  "homepage": "https://github.com/pjankiewicz/vue-chessboard#readme",
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-eslint": "^7.1.1",
