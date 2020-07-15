@@ -211,9 +211,11 @@ export default {
     },
   },
   mounted () {
+    alert("mounted")
     this.loadPosition()
   },
   created () {
+    alert("mounted")
     this.game = new Chess()
     this.board = null
     this.promotions = []
