@@ -119,6 +119,7 @@ export default {
       }
     },
     isPromotion   (orig, dest) {
+      this.calculatePromotions()
       let filteredPromotions = this.promotions.filter(move => move.from === orig && move.to === dest)
       return filteredPromotions.length > 0 // The current movement is a promotion
     },
@@ -136,7 +137,6 @@ export default {
             dests: this.possibleMoves(),
           },
         })
-        this.calculatePromotions()
         this.afterMove()
       }
     },
@@ -192,7 +192,6 @@ export default {
       this.board.set({
         movable: { events: { after: this.changeTurn() } },
       })
-      this.calculatePromotions()
       this.afterMove()
     },
     loadMove () {
