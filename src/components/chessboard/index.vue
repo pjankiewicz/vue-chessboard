@@ -192,6 +192,7 @@ export default {
       this.board.set({
         movable: { events: { after: this.changeTurn() } },
       })
+      this.calculatePromotions()
       this.afterMove()
     },
     loadMove () {
